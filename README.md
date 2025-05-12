@@ -1,68 +1,3 @@
-🔖 RULES FILE FOR AI DEVELOPMENT
-
-General Principles
-
-Performance First: All pages must load within 2 seconds or less on 3G networks.
-
-Mobile-First Design: Prioritize responsive design and UX for smartphones.
-
-SEO Best Practices: Implement meta tags, semantic HTML, Open Graph tags, and JSON-LD.
-
-Security: Secure all endpoints. Use HTTPS, rate limiting, and input sanitization.
-
-Scalability: Use modular code and reusable components. Avoid hardcoding.
-
-Accessibility (a11y): Meet WCAG 2.1 AA compliance.
-
-AI Output Readability: All generated code and text must be well-commented and human-readable.
-
-Architecture Rules
-
-Use Next.js (latest stable) as the frontend framework.
-
-All styling must use Tailwind CSS.
-
-Animations should use Framer Motion.
-
-Backend logic can be implemented via Next.js API routes.
-
-Database must be PostgreSQL via Supabase.
-
-Use TypeScript for type safety.
-
-Use NextAuth.js for authentication.
-
-Payments must integrate MPesa API and Stripe.
-
-CMS must be Sanity.io or Strapi.
-
-Folder Structure (src/)
-
-- src/
-  - components/
-  - pages/
-    - api/
-  - styles/
-  - lib/
-  - utils/
-  - hooks/
-
-Mandatory Features
-
-Product Listing with filters (price, category, availability)
-
-Product Detail Pages with image gallery
-
-Shopping Cart (stored in localStorage for guests, DB for users)
-
-Checkout flow (with payment integration)
-
-User login/signup
-
-Admin interface for managing products
-
-Contact form with email integration
-
 📄 README.md
 
 🌟 SchoolMall Redesign Project
@@ -216,11 +151,173 @@ Backend: Railway – deploy API routes and DB
 
 CMS: Sanity.io – hosted content studio
 
-✏️ Testing Checklist
+📚 Documentation Requirements
 
+✅ API Documentation
+- Swagger/OpenAPI documentation
+- API endpoint specifications
+- Authentication requirements
 
+✅ User Documentation
+- User guides
+- Admin dashboard documentation
+- Payment process documentation
+
+✅ Technical Documentation
+- Architecture diagrams
+- Database schema
+- Deployment procedures
 
 🏆 License
 
 MIT License. All rights reserved to SchoolMall KE.
+
+Phase 1: Planning & Setup
+Goal: Lay the foundation for your stack and project structure
+
+✅ Tasks:
+
+ Finalize UI/UX wireframes or designs (Figma/Sketch)
+
+ Set up GitHub repo and Git version control
+
+ Create project structure in Next.js
+
+ Set up Tailwind CSS with Next.js
+
+ Choose your CMS (Sanity.io or Strapi) and connect
+
+ Set up Supabase (PostgreSQL + Auth + Storage if needed)
+
+ Set up environment variables using .env.local
+
+🔧 Tools:
+
+Figma (UI/UX design)
+
+GitHub (source control)
+
+Vercel + Railway accounts
+
+Trello/Notion (project tracking)
+
+🔹 Phase 2: Frontend Development
+Goal: Build responsive and fast UI for key pages
+
+✅ Core Pages:
+
+ Home Page
+
+ Product Listing Page (with categories)
+
+ Product Detail Page
+
+ Cart Page
+
+ Checkout Page
+
+ Contact/About Page
+
+ Admin Dashboard (optional now)
+
+💡 Use:
+
+Tailwind CSS for layout and styling
+
+Framer Motion for animations
+
+Dynamic routing in Next.js
+
+SEO optimization with <Head> tags and image optimization
+
+🔹 Phase 3: Backend & CMS Integration
+Goal: Connect data sources and power the site with dynamic content
+
+✅ Tasks:
+
+ Connect frontend to Sanity.io or Strapi for products/content
+
+ Set up product schema (name, price, stock, category, image, etc.)
+
+ Use Supabase for cart and user data
+
+ Create API routes in Next.js for handling:
+
+ Cart updates
+
+ Order submissions
+
+ Stock management
+
+🔹 Phase 4: Payments & Authentication
+Goal: Allow secure logins and checkout
+
+✅ Tasks:
+
+ Integrate NextAuth.js with Supabase or Clerk.dev
+
+Google/email/password sign-in
+
+ Integrate MPesa API
+
+Create secure server-side endpoint for payment requests
+
+Handle callbacks and confirmations
+
+ Secure API routes with middleware
+
+🔐 Tip: Use HTTPS + token-based auth for secure MPesa integrations
+
+🔹 Phase 5: Hosting, SEO, and Performance
+Goal: Make it live, fast, and discoverable
+
+✅ Tasks:
+
+ Deploy frontend to Vercel
+
+ Deploy backend & Supabase DB on Railway
+
+ Add SEO best practices (meta tags, OG tags, structured data)
+
+ Enable image compression and lazy loading
+
+ Configure domain (schoolmall.co.ke)
+
+ Set up 301 redirects if migrating from old site
+
+�� Phase 6: Analytics and Optimization
+Goal: Track users and ensure smooth UX
+
+✅ Tasks:
+- Install Google Analytics 4
+- Install Hotjar or Microsoft Clarity
+- Perform user testing
+- Lighthouse audit (check Core Web Vitals)
+- Improve mobile performance and accessibility
+
+🔹 Phase 7: Admin Panel (Optional or Later Phase)
+Goal: Enable easy management of orders, stock, and customers
+
+✅ Features:
+- View/add/edit/delete products
+- Order management view
+- Customer list and order history
+- REST API integration or CMS-based dashboard
+- Error logging and monitoring
+- Backup and recovery procedures
+- User role management
+- Analytics dashboard
+
+🔹 Phase 8: Error Handling & Monitoring
+Goal: Ensure robust error handling and system monitoring
+
+✅ Tasks:
+- Implement global error boundary
+- Set up error logging (Sentry/LogRocket)
+- Create fallback UI components
+- Implement retry mechanisms for API calls
+- Set up monitoring alerts
+- Create error reporting system
+- Implement graceful degradation
+- Set up automated backups
 

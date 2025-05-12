@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #222222; /* Trunknet's black accent color */
+  --secondary-color: #767676; /* Gray for text */
+  --foreground-rgb: 38, 38, 38;
+  --background-rgb: 255, 255, 255;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#222222] hover:bg-[#000000] text-white font-medium py-2 px-4 rounded transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded transition-colors;
+  }
+  
+  .product-card {
+    @apply bg-white rounded-md overflow-hidden shadow-sm hover:shadow-md transition-shadow;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-gray-900 mb-4;
+  }
+  
+  .category-badge {
+    @apply px-2 py-1 text-xs font-semibold rounded bg-gray-100 text-gray-800;
+  }
+  
+  .price-tag {
+    @apply text-lg font-bold text-gray-900;
+  }
+  
+  .discount-price {
+    @apply ml-2 text-sm text-gray-500 line-through;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+} 

@@ -75,9 +75,26 @@ const products = [
 
 const TrendingProducts = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const maxIndex = Math.max(0, products.length - (window.innerWidth >= 1024 ? 4 : window.innerWidth >= 768 ? 3 : 1));
+  const [maxIndex, setMaxIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   
+  useEffect(() => {
+    const calculateMaxIndex = () => {
+      const width = window.innerWidth;
+      const itemsPerView = width >= 1024 ? 4 : width >= 768 ? 3 : 1;
+      setMaxIndex(Math.max(0, products.length - itemsPerView));
+    };
+
+    // Calculate initial maxIndex
+    calculateMaxIndex();
+
+    // Add resize listener
+    window.addEventListener('resize', calculateMaxIndex);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', calculateMaxIndex);
+  }, []);
+
   const scrollToIndex = (index: number) => {
     if (containerRef.current) {
       const container = containerRef.current;
@@ -100,19 +117,6 @@ const TrendingProducts = () => {
     setCurrentIndex(newIndex);
     scrollToIndex(newIndex);
   };
-
-  // Initialize maxIndex on mount and window resize
-  useEffect(() => {
-    const handleResize = () => {
-      const newMaxIndex = Math.max(0, products.length - (window.innerWidth >= 1024 ? 4 : window.innerWidth >= 768 ? 3 : 1));
-      if (currentIndex > newMaxIndex) {
-        setCurrentIndex(newMaxIndex);
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [currentIndex]);
 
   return (
     <section className="py-16 bg-gray-50">
